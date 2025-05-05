@@ -1,0 +1,119 @@
+1)go to the below website and login
+->https://trailhead.salesforce.com/
+
+2)in search bar type and enter
+->developer console
+
+3)Select the below app 
+->Developer Console Basics
+
+4)select the below tab
+->Navigate and Edit Source Code
+
+5) Scroll down and press the launch button
+->Launch
+
+6)Click on the Gear or Setting icon on the top navbar
+->Big Gear Icon
+
+7)Click on the below tab
+->Developer Console
+
+8)Go to File Tab on the navbar
+->Click on New File 
+
+9)->Select Apex Class
+
+10)->Enter the Class name as per Practical
+*****Go Below these File for the code
+
+11)->Paste Our code 
+******Go Below these File for the code
+
+
+12)->Control S to save the file
+
+13)->go to Debug on the navbar
+
+
+14)->Open execute anonymous window
+
+15)Properly enter these 
+********Go Below these File for the code
+->ClassName.FuctionName(if parameter enter here);
+
+
+16)tick on 
+->Open Log
+
+17)Click on ->Execute
+
+18)->Tick the Debug Only Tick Box
+
+
+
+
+
+
+Practical 12-16 add sub mul div calculator
+step-10->
+Calculator
+
+step-11->
+public class Calculator {
+    public static void cal(Integer a, Integer b) {
+        Integer result = a + b;
+        Integer result1 = a - b;
+        Integer result2 = a * b;
+        Integer result3 = a / b;
+        System.debug('The sum is: ' + result); // This prints to debug log
+        System.debug('The difference is: ' + result1); // This prints to debug log
+        System.debug('The multiplication is: ' + result2); // This prints to debug log
+		System.debug('The division is: ' + result3); // This prints to debug log
+    }
+}
+
+
+step-15->
+Calculator.cal(5,6);
+
+
+****Practical 17-18 Multiple of 5 and 10
+step-10->
+Multiple_Table
+
+step-11->
+public class Multiple_Table {
+    public static void displayTable(Integer n) {
+        System.debug('Multiplication Table of ' + n + ':');
+        for (Integer i = 1; i <= 10; i++) {
+            System.debug(n + ' x ' + i + ' = ' + (n * i));
+        }
+    }
+}
+
+step-15->
+Multiple_Table.displayTable(5);
+
+
+
+******Practical 19 Welcome Salesforce
+
+
+step-10->
+Welcome_Salesforce
+
+step-11->
+public class Welcome_Salesforce {
+    public static void printMessage() {
+        System.debug('Welcome to Apex Programming Language of sale force Platform');
+    }
+}
+
+step->15
+Welcome_Salesforce.printMessage();
+
+
+
+
+

@@ -1,0 +1,86 @@
+import heapq
+
+def manhattan_distance(state, goal):
+    distance = 0
+    goal_positions = {val: (i, j) for i in range(3) for j in range(3) for val in [goal[i][j]]}
+    for i in range(3):
+        for j in range(3):
+            val = state[i][j]
+            if val != 0:
+                goal_i, goal_j = goal_positions[val]
+                distance += abs(goal_i - i) + abs(goal_j - j)
+    return distance
+
+def get_neighbors(state):
+    neighbors = []
+    x, y = next((i, j) for i in range(3) for j in range(3) if state[i][j] == 0)
+    directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+
+    for dx, dy in directions:
+        nx, ny = x + dx, y + dy
+        if 0 <= nx < 3 and 0 <= ny < 3:
+            new_state = [row[:] for row in state]
+            new_state[x][y], new_state[nx][ny] = new_state[nx][ny], new_state[x][y]
+            neighbors.append(new_state)
+    return neighbors
+
+def state_to_tuple(state):
+    return tuple(tuple(row) for row in state)
+
+def print_path(path):
+    for idx, step in enumerate(path):
+        print(f"Step {idx}:")
+        for row in step:
+            print(" ".join(str(x) if x != 0 else " " for x in row))
+        print("")
+
+def astar(start, goal):
+    open_set = []
+    heapq.heappush(open_set, (manhattan_distance(start, goal), 0, start, []))
+    visited = set()
+
+    while open_set:
+        est_total_cost, cost, current, path = heapq.heappop(open_set)
+        state_tuple = state_to_tuple(current)
+
+        if current == goal:
+            print(f"\n✅ Solution found in {cost} moves:")
+            print_path(path + [current])
+            return
+
+        if state_tuple in visited:
+            continue
+        visited.add(state_tuple)
+
+        for neighbor in get_neighbors(current):
+            neighbor_tuple = state_to_tuple(neighbor)
+            if neighbor_tuple not in visited:
+                new_cost = cost + 1
+                priority = new_cost + manhattan_distance(neighbor, goal)
+                heapq.heappush(open_set, (priority, new_cost, neighbor, path + [current]))
+
+    print("No solution found.")
+
+
+
+def input_matrix(name):
+    print(f"Enter {name} state (3 rows, 0 for blank):")
+    matrix = []
+    for i in range(3):
+        row = list(map(int, input(f"Row {i+1}: ").split()))
+        if len(row) != 3:
+            print("Each row must have 3 numbers.")
+            exit()
+        matrix.append(row)
+    return matrix
+
+start_state = input_matrix("initial")
+goal_state = input_matrix("goal")
+
+print("\n🔍 Solving 8 Puzzle using A* Algorithm...\n")
+astar(start_state, goal_state)
+
+
+
+# # Enter initial state (e.g., 1 2 3 4 0 6 7 5 8): 1 2 3 4 0 6 7 5 8
+# # Enter goal state (e.g., 1 2 3 4 5 6 0 7 8): 1 0 3 4 5 6 2 7 8

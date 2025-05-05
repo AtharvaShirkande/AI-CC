@@ -1,0 +1,64 @@
+# Expert system for Help Desk Management
+
+def get_help_category():
+    print("Please select the category of your issue:")
+    print("1. Account Issues")
+    print("2. Technical Support")
+    print("3. Other")
+    category = input("Enter the number of your issue category: ")
+    return category
+
+def handle_account_issues():
+    print("You have selected Account Issues. Please choose an option:")
+    print("1. Forgot Password")
+    print("2. Account Locked")
+    print("3. Change Account Information")
+    option = input("Enter the number of your option: ")
+    if option == "1":
+        print("You can reset your password by clicking 'Forgot Password' on the login page.")
+    elif option == "2":
+        print("Your account is locked. Please contact customer support to unlock your account.")
+    elif option == "3":
+        print("To change your account information, visit the 'Account Settings' page.")
+    else:
+        print("Invalid option. Please try again.")
+
+def handle_technical_support():
+    print("You have selected Technical Support. Please choose an option:")
+    print("1. Software Installation")
+    print("2. Network Connectivity Issues")
+    print("3. Hardware Issues")
+    option = input("Enter the number of your option: ")
+    if option == "1":
+        print("For software installation, refer to the installation guide or visit our support page.")
+    elif option == "2":
+        print("If you're experiencing network connectivity issues, try restarting your router. If the issue persists, contact tech support.")
+    elif option == "3":
+        print("For hardware issues, check the troubleshooting steps or contact hardware support.")
+    else:
+        print("Invalid option. Please try again.")
+
+def handle_other_issues():
+    print("You have selected Other. Please describe your issue:")
+    issue = input("Describe your issue: ")
+    print(f"Your issue '{issue}' has been recorded. Please contact support for further assistance.")
+
+def help_desk_system():
+    while True:
+        category = get_help_category()
+        if category == "1":
+            handle_account_issues()
+        elif category == "2":
+            handle_technical_support()
+        elif category == "3":
+            handle_other_issues()
+        else:
+            print("Invalid category. Please try again.")
+
+        continue_choice = input("Would you like to handle another issue? (yes/no): ").lower()
+        if continue_choice != 'yes':
+            print("Thank you for using the Help Desk Management System. Goodbye!")
+            break
+
+help_desk_system()
+

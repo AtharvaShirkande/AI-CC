@@ -1,0 +1,32 @@
+def dfs(graph, visited, node):
+    if node not in visited:
+        print(node, end=" ")
+        visited.add(node)
+        for neighbor in graph[node]:
+            dfs(graph, visited, neighbor)
+
+# Input graph from user
+graph = {}
+n = int(input("Enter number of vertices: "))
+for i in range(n):
+    node = input(f"Enter name of node {i+1}: ")
+    neighbors = input(f"Enter neighbors of {node} separated by space: ").split()
+    graph[node] = neighbors
+
+# Starting DFS
+start = input("Enter starting node for DFS: ")
+print("DFS Traversal:")
+visited = set()
+dfs(graph, visited, start)
+
+
+# Enter number of vertices: 4
+# Enter name of node 1: A
+# Enter neighbors of A separated by space: B C
+# Enter name of node 2: B
+# Enter neighbors of B separated by space: A D
+# Enter name of node 3: C
+# Enter neighbors of C separated by space: A D
+# Enter name of node 4: D
+# Enter neighbors of D separated by space: B C
+# Enter starting node for DFS: A

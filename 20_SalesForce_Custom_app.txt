@@ -1,0 +1,34 @@
+
+🔧 Steps to Create a Lightning App in Salesforce Playground
+
+1. Go to [https://trailhead.salesforce.com/](https://trailhead.salesforce.com/).
+2. In the search bar, type Developer Console.
+3. Select Developer Console Basics module.
+4. Navigate to the unit: Navigate and Edit Source Code.
+5. Click Launch to open your Trailhead Playground.
+6. Inside the Playground, click the Gear icon (⚙️) at the top right and choose Setup.
+7. In Setup, type App Manager in the Quick Find box and open App Manager.
+8. Click New Lightning App at the top right.
+9. In the App Details & Branding:
+
+   * Enter your App Name (e.g., "Student App").
+   * The Developer Name auto-fills.
+   * Click Next.
+10. In App Options, leave defaults or customize as needed → click Next.
+11. Under Utility Items, click Add Utility Item, then search for and select Rich Text Editor → click Add.
+12. Click Next to go to Navigation Items.
+13. In the Available Items list, search and add:
+
+    * Accounts
+    * Approval Requests
+    * Opportunities
+      Move these to Selected Items.
+14. Click Next.
+15. In User Profiles, select System Administrator.
+16. Click Save and Finish.
+17. Click the App Launcher (9-dot icon) in the top-left.
+18. Search for your newly created app by name.
+19. Click the app hyperlink to open it.
+20. Use the tabs like Accounts, Opportunities, etc., to start entering or editing data.
+
+

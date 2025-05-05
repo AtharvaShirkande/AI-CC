@@ -1,0 +1,48 @@
+from collections import deque
+def bfs_recursive(queue, visited, graph):
+    if not queue:
+        return
+    node = queue.popleft()
+    if node not in visited:
+        print(node, end=" ")
+        visited.add(node)
+
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                queue.append(neighbor)
+    
+    bfs_recursive(queue, visited, graph)
+
+
+
+graph = {}
+n = int(input("Enter number of vertices: "))
+for i in range(n):
+    node = input(f"Enter name of node {i+1}: ")
+    neighbors = input(f"Enter neighbors of {node} separated by space: ").split()
+    graph[node] = neighbors
+
+start = input("Enter starting node for BFS: ")
+print("BFS Traversal:")
+visited=set()
+bfs_recursive(deque([start]), visited,graph)
+
+
+
+# Enter number of vertices: 4
+# Enter node 1 name: A
+# Enter neighbors of A separated by space: B C
+# Enter node 2 name: B
+# Enter neighbors of B separated by space: A D
+# Enter node 3 name: C
+# Enter neighbors of C separated by space: A D
+# Enter node 4 name: D
+# Enter neighbors of D separated by space: B C
+# Enter starting node for BFS: A
+
+
+
+# Visited: A
+# Visited: B
+# Visited: C
+# Visited: D
