@@ -1,0 +1,34 @@
+Design and develop custom Application using Sales force Cloud (Lightning Platform)
+
+
+1)Click on Profile Photo
+
+2)Hands on Orgs
+
+3)Create and Launch Playground
+
+4)Click on setting and then SETUP
+
+5)Search App Manager 
+
+6)New Lightning App
+
+7)Search Rich Text
+
+8)Next add 1) Account
+	   2) Approval
+	   3) Opportunities
+
+9)Next Add System Administration
+
+10)Click on Setup 
+
+11)Create Account Named :ex "Atharva"
+
+12)Go to Opportunities
+
+13)Write 1)Name 
+         2)Closed Date
+
+14)Create Opportunity
+
